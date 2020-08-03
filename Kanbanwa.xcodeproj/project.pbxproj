@@ -13,6 +13,10 @@
 		57BAC6AF24D8C04F00BD34AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BAC6AE24D8C04F00BD34AE /* Preview Assets.xcassets */; };
 		57BAC6BB24D8C05000BD34AE /* KanbanwaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAC6BA24D8C05000BD34AE /* KanbanwaTests.swift */; };
 		57BAC6C624D8C05000BD34AE /* KanbanwaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAC6C524D8C05000BD34AE /* KanbanwaUITests.swift */; };
+		57BAC6D424D8C06500BD34AE /* KanbanCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAC6D324D8C06500BD34AE /* KanbanCard.swift */; };
+		57BAC6D624D8C2CC00BD34AE /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAC6D524D8C2CC00BD34AE /* Drawing.swift */; };
+		57BAC6D824D8CB1F00BD34AE /* KanbanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAC6D724D8CB1F00BD34AE /* KanbanModel.swift */; };
+		57BAC6DA24D8CC3A00BD34AE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BAC6D924D8CC3A00BD34AE /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		57BAC6C124D8C05000BD34AE /* KanbanwaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanbanwaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57BAC6C524D8C05000BD34AE /* KanbanwaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanwaUITests.swift; sourceTree = "<group>"; };
 		57BAC6C724D8C05000BD34AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57BAC6D324D8C06500BD34AE /* KanbanCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanCard.swift; sourceTree = "<group>"; };
+		57BAC6D524D8C2CC00BD34AE /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
+		57BAC6D724D8CB1F00BD34AE /* KanbanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanModel.swift; sourceTree = "<group>"; };
+		57BAC6D924D8CC3A00BD34AE /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,9 @@
 			children = (
 				57BAC6A724D8C04D00BD34AE /* KanbanwaApp.swift */,
 				57BAC6A924D8C04D00BD34AE /* ContentView.swift */,
+				57BAC6D724D8CB1F00BD34AE /* KanbanModel.swift */,
+				57BAC6D324D8C06500BD34AE /* KanbanCard.swift */,
+				57BAC6D524D8C2CC00BD34AE /* Drawing.swift */,
 				57BAC6AB24D8C04F00BD34AE /* Assets.xcassets */,
 				57BAC6B024D8C04F00BD34AE /* Info.plist */,
 				57BAC6B124D8C04F00BD34AE /* Kanbanwa.entitlements */,
@@ -109,6 +120,7 @@
 		57BAC6AD24D8C04F00BD34AE /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				57BAC6D924D8CC3A00BD34AE /* TestData.swift */,
 				57BAC6AE24D8C04F00BD34AE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -262,7 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				57BAC6AA24D8C04D00BD34AE /* ContentView.swift in Sources */,
+				57BAC6D424D8C06500BD34AE /* KanbanCard.swift in Sources */,
 				57BAC6A824D8C04D00BD34AE /* KanbanwaApp.swift in Sources */,
+				57BAC6DA24D8CC3A00BD34AE /* TestData.swift in Sources */,
+				57BAC6D624D8C2CC00BD34AE /* Drawing.swift in Sources */,
+				57BAC6D824D8CB1F00BD34AE /* KanbanModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

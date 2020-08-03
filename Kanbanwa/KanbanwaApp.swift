@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct KanbanwaApp: App {
+  
+  @StateObject var mainModel: KanbanController = TestData()
+  
     var body: some Scene {
         WindowGroup {
             ContentView()
+              .environmentObject(mainModel)
+              .frame(minWidth: 700, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
         }
     }
 }
