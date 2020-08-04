@@ -5,7 +5,7 @@
 //  Created by Joss Manger on 8/3/20.
 //
 
-import Foundation
+import SwiftUI
 
 enum KanbanType: String, Codable {
   case story
@@ -41,8 +41,27 @@ struct KanbanItem: Codable, Identifiable {
   
 }
 
-class KanbanController: ObservableObject, NSDrag {
+class KanbanController: ObservableObject, DropDelegate {
   
+  func performDrop(info: DropInfo) -> Bool {
+    print(info.itemProviders(for: ["public.utf8-plain-text"]))
+    
+    print(info.location)
+    
+    if let item = info.itemProviders(for: ["public.utf8-plain-text"]).first {
+      item.loadItem(forTypeIdentifier: "public.utf8-plain-text", options: nil) { (data, error) in
+        
+        let coder = JSONDecoder()
+        if let item = try? coder.decode(KanbanItem.self, from: data as! Data) {
+          print(item)
+        }
+        
+      }
+    }
+    
+    return false
+  }
+
   @Published var headings = ["Not Started","Doing","Done","Reviewed"]
   
   @Published var tasks:[String:[KanbanItem]] = [

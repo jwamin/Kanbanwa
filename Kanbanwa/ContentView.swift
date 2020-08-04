@@ -11,23 +11,32 @@ struct ContentView: View {
   
   @EnvironmentObject var mainModel: KanbanController
   
-  func
-  
   var body: some View {
     HStack(alignment:.top){
-      ForEach(mainModel.headings,id:\.self){ title in
+      ForEach(mainModel.headings.indices){ index in
         VStack(spacing:8){
-          Text(title).font(Font.body.smallCaps()).fixedSize(horizontal: false, vertical: true)
+          Text(mainModel.headings[index]).font(Font.body.smallCaps()).fixedSize(horizontal: false, vertical: true)
           Divider()
-          ForEach(mainModel.tasksForState(strKey: title)) { item in
-            KanbanCard(model: item).onDrag({
-              NSItemProvider(object: item.encoded as NSItemProviderWriting)
-            })
-          }
-        }.onDrop(of: ["public.text"], delegate: <#T##DropDelegate#>)
-        Divider()
+          VStack(spacing:8){
+            ForEach(mainModel.tasksForState(strKey: mainModel.headings[index])) { item in
+              KanbanCard(model: item).onDrag({
+                NSItemProvider(object: item.encoded as NSItemProviderWriting)
+              })
+            }
+          }.onDrop(of: ["public.utf8-plain-text"], delegate: mainModel)
+        }
+        if index != mainModel.headings.indices.last {
+          Divider()
+        }
       }
     }.padding()
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        Button(action: { }, label: {
+          Image(systemName: "square.and.arrow.up")
+        })
+      }
+    }
   }
 }
 

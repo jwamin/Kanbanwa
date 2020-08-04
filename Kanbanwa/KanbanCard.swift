@@ -35,9 +35,10 @@ struct KanbanCard: View {
           Text(model.body).lineLimit(3).truncationMode(.tail).fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
         }
         .padding()
-        .frame(minWidth: 200, idealWidth: 300, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        .frame(minWidth: 200, idealWidth: 300, maxWidth:.infinity,alignment: .leading)
         .background(getBackground(state: model.type))
         .cornerRadius(25)
+        .shadow(color: Color.gray.opacity(0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 3, y: 2)
     }
 }
 

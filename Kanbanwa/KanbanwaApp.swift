@@ -16,7 +16,7 @@ struct KanbanwaApp: App {
         WindowGroup {
             ContentView()
               .environmentObject(mainModel)
-              .frame(minWidth: 700, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
+              .frame(minWidth: 900, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
         }
     }
 }

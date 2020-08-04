@@ -37,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		577258F324D8DDBA00610CFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		577258F524D8DF9F00610CFB /* shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shot.png; sourceTree = "<group>"; };
 		57BAC6A424D8C04D00BD34AE /* Kanbanwa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanbanwa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57BAC6A724D8C04D00BD34AE /* KanbanwaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanwaApp.swift; sourceTree = "<group>"; };
 		57BAC6A924D8C04D00BD34AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,10 +83,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		577258F424D8DF7C00610CFB /* Img */ = {
+			isa = PBXGroup;
+			children = (
+				577258F524D8DF9F00610CFB /* shot.png */,
+			);
+			path = Img;
+			sourceTree = "<group>";
+		};
 		57BAC69B24D8C04D00BD34AE = {
 			isa = PBXGroup;
 			children = (
+				577258F324D8DDBA00610CFB /* README.md */,
 				57BAC6A624D8C04D00BD34AE /* Kanbanwa */,
+				577258F424D8DF7C00610CFB /* Img */,
 				57BAC6B924D8C05000BD34AE /* KanbanwaTests */,
 				57BAC6C424D8C05000BD34AE /* KanbanwaUITests */,
 				57BAC6A524D8C04D00BD34AE /* Products */,
