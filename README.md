@@ -6,8 +6,12 @@
 
 ### SwiftUI LifeCycle Prototype Kanban Board
 
+#### DONE
+* Basic UI
+* Drag and Drop
+
 #### TODO
-* Finish Drag and Drop
+* Animated Drag and drop
 * CRUD
 * Save
 * Nicer Gradients
