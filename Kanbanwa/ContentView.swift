@@ -23,7 +23,10 @@ struct ContentView: View {
                 NSItemProvider(object: item.encoded as NSItemProviderWriting)
               })
             }
-          }.frame(maxHeight:.infinity,alignment:.top).onDrop(of: ["public.utf8-plain-text"], delegate: mainModel)
+            if mainModel.tasksForState(strKey: mainModel.headings[index]).count == 0 {
+              Image(systemName: "eyes")
+            }
+          }.frame(minHeight:300, maxHeight:.infinity,alignment:.top).onDrop(of: ["public.utf8-plain-text"], delegate: self.mainModel.controllerForHeading(heading:mainModel.headings[index]))
         }
         if index != mainModel.headings.indices.last {
           Divider()

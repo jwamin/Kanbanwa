@@ -41,27 +41,8 @@ struct KanbanItem: Codable, Identifiable {
   
 }
 
-class KanbanController: ObservableObject, DropDelegate {
+class KanbanController: ObservableObject {
   
-  func performDrop(info: DropInfo) -> Bool {
-    print(info.itemProviders(for: ["public.utf8-plain-text"]))
-    
-    print(info.location)
-    
-    if let item = info.itemProviders(for: ["public.utf8-plain-text"]).first {
-      item.loadItem(forTypeIdentifier: "public.utf8-plain-text", options: nil) { (data, error) in
-        
-        let coder = JSONDecoder()
-        if let item = try? coder.decode(KanbanItem.self, from: data as! Data) {
-          print(item)
-        }
-        
-      }
-    }
-    
-    return false
-  }
-
   @Published var headings = ["Not Started","Doing","Done","Reviewed"]
   
   @Published var tasks:[String:[KanbanItem]] = [
@@ -71,6 +52,22 @@ class KanbanController: ObservableObject, DropDelegate {
     "Reviewed": []
     ]
   
+  private var controllers = [String:KanbanDropDelegate]()
+  
+  init(){
+    
+    for heading in headings {
+      let new = KanbanDropDelegate(controller: self, id: heading)
+      controllers[heading] = new
+    }
+    
+  }
+  
+  func controllerForHeading(heading:String) -> KanbanDropDelegate {
+    return controllers[heading]!
+  }
+  
+  
   func tasksForState(strKey:String) -> [KanbanItem] {
     
     return tasks[strKey]!.sorted(by: { (item1, item2) -> Bool in
@@ -78,5 +75,57 @@ class KanbanController: ObservableObject, DropDelegate {
     })
     
   }
+  
+  func moveItem(item:KanbanItem, to:String){
+    
+    for (key,tasksInGroup) in tasks {
+      for (index,itritem) in tasksInGroup.enumerated() {
+        if itritem.id == item.id {
+          tasks[key]!.remove(at: index)
+        }
+      }
+    }
+    
+    tasks[to]!.append(item)
+    
+  }
+  
+}
+
+class KanbanDropDelegate: DropDelegate {
+  
+  unowned let controller: KanbanController
+  let identifier: String
+  
+  init(controller: KanbanController,id:String){
+    self.controller = controller
+    self.identifier = id
+  }
+  
+  func performDrop(info: DropInfo) -> Bool {
+    print(info.itemProviders(for: ["public.utf8-plain-text"]))
+    
+    print(info.location)
+    
+    if let item = info.itemProviders(for: ["public.utf8-plain-text"]).first {
+      item.loadItem(forTypeIdentifier: "public.utf8-plain-text", options: nil) { (data, error) in
+        DispatchQueue.global().async {
+        let coder = JSONDecoder()
+        if let item = try? coder.decode(KanbanItem.self, from: data as! Data) {
+          print(item,self.identifier,self.controller)
+          
+          DispatchQueue.main.async {
+          self.controller.moveItem(item: item, to: self.identifier)
+          }
+        }
+        }
+        
+      }
+    }
+    
+    return true
+  }
+
+  
   
 }
