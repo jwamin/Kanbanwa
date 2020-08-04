@@ -23,7 +23,7 @@ struct ContentView: View {
                 NSItemProvider(object: item.encoded as NSItemProviderWriting)
               })
             }
-          }.onDrop(of: ["public.utf8-plain-text"], delegate: mainModel)
+          }.frame(maxHeight:.infinity,alignment:.top).onDrop(of: ["public.utf8-plain-text"], delegate: mainModel)
         }
         if index != mainModel.headings.indices.last {
           Divider()
