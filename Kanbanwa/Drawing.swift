@@ -22,7 +22,7 @@ struct Constants {
     static var blue = LinearGradient(gradient: tealGradient, startPoint: .top, endPoint: .bottom)
     static var pink = LinearGradient(gradient: pinkGradient, startPoint: .top, endPoint: .bottom)
     static var grey = LinearGradient(gradient: greyGradient, startPoint: .top, endPoint: .bottom)
-    static var orange = LinearGradient(gradient: orangeGradient, startPoint: .topLeading, endPoint: .bottomTrailing)
+    static var orange = LinearGradient(gradient: orangeGradient, startPoint: .top, endPoint: .bottom)
   }
   
   
