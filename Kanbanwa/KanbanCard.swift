@@ -25,14 +25,31 @@ struct KanbanCard: View {
 
   }
   
+  func getIcon(state: KanbanType) -> Image {
+    
+    switch state {
+    case .other:
+      return Image(systemName: "hammer.fill")
+    case .story:
+      return Image(systemName: "book.closed.fill")
+    case .todo:
+      return Image(systemName: "bolt")
+    }
+
+  }
   
     var body: some View {
 
         VStack(alignment: .leading, spacing: 3){
-          Text("Item number: \(model.number)").font(Font.body.smallCaps())
+          HStack(alignment:.firstTextBaseline){
+            Text("TaskID: \(uuidTruncator(uuid: model.id))").font(Font.footnote.smallCaps())
+            Spacer()
+            getIcon(state: model.type)
+          }
+          Text("Item number: \(model.number)").font(Font.callout.smallCaps())
           Text(model.title.uppercased()).font(.title)
-          Text(model.subtitle).font(.subheadline)
-          Text(model.body).lineLimit(3).truncationMode(.tail).fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+          Text(model.subtitle).font(.subheadline).italic()
+          Text(model.body).font(.footnote).lineLimit(3).truncationMode(.tail).fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
         }
         .padding()
         .frame(minWidth: 200, idealWidth: 300, maxWidth:.infinity,alignment: .leading)
