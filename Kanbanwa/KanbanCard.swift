@@ -49,7 +49,16 @@ struct KanbanCard: View {
           Text("Item number: \(model.number)").font(Font.callout.smallCaps())
           Text(model.title.uppercased()).font(.title)
           Text(model.subtitle).font(.subheadline).italic()
+          HStack(alignment:.firstTextBaseline){
           Text(model.body).font(.footnote).lineLimit(3).truncationMode(.tail).fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+            Spacer(minLength: 8)
+            Button(action: {
+              //PLACEHOLDER
+              print("open detail for \(model.id)")
+            }, label: {
+              Image(systemName: "info.circle")
+            }).buttonStyle(LinkButtonStyle())
+          }
         }
         .padding()
         .frame(minWidth: 200, idealWidth: 300, maxWidth:.infinity,alignment: .leading)
