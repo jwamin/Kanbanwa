@@ -24,7 +24,7 @@ struct ContentView: View {
               })
             }
             if mainModel.tasksForState(strKey: mainModel.headings[index]).count == 0 {
-              Image(systemName: "eyes")
+              Image(systemName: "eyes").resizable().aspectRatio(contentMode: .fit).frame(width: 30, height: 30)
             }
           }.frame(minHeight:300, maxHeight:.infinity,alignment:.top).onDrop(of: ["public.utf8-plain-text"], delegate: self.mainModel.controllerForHeading(heading:mainModel.headings[index]))
         }
