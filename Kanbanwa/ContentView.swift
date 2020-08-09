@@ -20,7 +20,7 @@ struct ContentView: View {
           VStack(spacing:8){
             ForEach(mainModel.tasksForState(strKey: mainModel.headings[index])) { item in
               KanbanCard(model: item).onDrag({
-                NSItemProvider(object: item.encoded as NSItemProviderWriting)
+                NSItemProvider(object: KanbanTransferType(data: item, key: mainModel.headings[index]).encoded as NSItemProviderWriting)
               })
             }
             if mainModel.tasksForState(strKey: mainModel.headings[index]).count == 0 {

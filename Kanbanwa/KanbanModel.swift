@@ -13,6 +13,16 @@ enum KanbanType: String, Codable {
   case other
 }
 
+struct KanbanTransferType: Codable {
+  let data: KanbanItem
+  let key: String
+  
+  var encoded: String {
+    String(data: try! JSONEncoder().encode(self),encoding: .utf8)!
+  }
+  
+}
+
 struct KanbanItem: Codable, Identifiable {
   
   var encoded: String {
@@ -76,14 +86,10 @@ class KanbanController: ObservableObject {
     
   }
   
-  func moveItem(item:KanbanItem, to:String){
+  func moveItem(item:KanbanItem, from:String, to:String){
     
-    for (key,tasksInGroup) in tasks {
-      for (index,itritem) in tasksInGroup.enumerated() {
-        if itritem.id == item.id {
-          tasks[key]!.remove(at: index)
-        }
-      }
+    tasks[from]!.removeAll { (kanbanItem) -> Bool in
+      item.id == kanbanItem.id
     }
     
     tasks[to]!.append(item)
@@ -111,11 +117,11 @@ class KanbanDropDelegate: DropDelegate {
       item.loadItem(forTypeIdentifier: "public.utf8-plain-text", options: nil) { (data, error) in
         DispatchQueue.global().async {
         let coder = JSONDecoder()
-        if let item = try? coder.decode(KanbanItem.self, from: data as! Data) {
+          if let item = try? coder.decode(KanbanTransferType.self, from: data as! Data) {
           print(item,self.identifier,self.controller)
           
           DispatchQueue.main.async {
-          self.controller.moveItem(item: item, to: self.identifier)
+            self.controller.moveItem(item: item.data, from:item.key, to: self.identifier)
           }
         }
         }
