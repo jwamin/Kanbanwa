@@ -2,7 +2,7 @@
 
 #  Kanbanwa
 
-## For Those Late Night Projects...
+### For Those Late Night Projects...
 
 ### SwiftUI LifeCycle Prototype Kanban Board
 
@@ -13,5 +13,7 @@
 #### TODO
 * Animated Drag and drop
 * CRUD
-* Save
+* CRUD for columns
+* Detail screens
+* Save to... json?
 * Nicer Gradients
