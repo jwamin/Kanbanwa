@@ -449,7 +449,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kanbanwa/Kanbanwa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Kanbanwa/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Kanbanwa/Preview\\ Content";
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -473,7 +473,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kanbanwa/Kanbanwa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Kanbanwa/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Kanbanwa/Preview\\ Content";
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

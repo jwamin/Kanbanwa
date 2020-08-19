@@ -33,13 +33,11 @@ struct ContentView: View {
         }
       }
     }.padding()
-    .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        Button(action: { }, label: {
-          Image(systemName: "square.and.arrow.up")
-        })
-      }
-    }
+    .toolbar(content:{
+      Button(action: { }, label: {
+        Image(systemName: "square.and.arrow.up")
+      })
+    })
   }
 }
 
